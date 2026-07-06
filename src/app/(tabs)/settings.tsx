@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
 } from 'react-native';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { File as FSFile } from 'expo-file-system';
 import preferencesDb from '@/db/preferences';
@@ -23,6 +23,7 @@ import { useTheme, useThemeMode } from '@/hooks/use-theme';
 
 export default function SettingsScreen() {
   const theme = useTheme();
+  const router = useRouter();
 
   // Settings states
   const { themeMode, setThemeMode } = useThemeMode();
@@ -171,7 +172,7 @@ export default function SettingsScreen() {
                   try {
                     const f = new FSFile(file.file_uri);
                     if (f.exists) {
-                      await f.deleteAsync();
+                      f.delete();
                     }
                   } catch (fsErr) {
                     console.warn(`Failed to delete physical file on database reset: ${file.file_uri}`, fsErr);
@@ -317,6 +318,32 @@ export default function SettingsScreen() {
           </Pressable>
         </ThemedView>
 
+        {/* Section: Privacy & Legal */}
+        <ThemedView type="backgroundElement" style={styles.sectionCard}>
+          <View style={styles.sectionHeader}>
+            <Ionicons name="shield-checkmark-outline" size={24} color={theme.accent} />
+            <ThemedText style={styles.sectionTitle}>Privacy &amp; Legal</ThemedText>
+          </View>
+          <ThemedText style={styles.sectionDescription} themeColor="textSecondary">
+            Review how DevVault handles your data and protects your privacy.
+          </ThemedText>
+
+          <Pressable
+            onPress={() => router.push('/privacy')}
+            style={({ pressed }) => [
+              styles.privacyRow,
+              { backgroundColor: theme.background, borderColor: theme.borderSubtle },
+              pressed && { opacity: 0.7 },
+            ]}
+          >
+            <View style={styles.privacyRowLeft}>
+              <Ionicons name="document-text-outline" size={18} color={theme.textSecondary} />
+              <ThemedText style={{ fontSize: 14, fontWeight: '500' }}>Privacy Policy</ThemedText>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={theme.textTertiary} />
+          </Pressable>
+        </ThemedView>
+
         {/* Section 3: Data Management */}
         <ThemedView type="backgroundElement" style={styles.sectionCard}>
           <View style={styles.sectionHeader}>
@@ -451,5 +478,19 @@ const styles = StyleSheet.create({
   },
   keyVisibilityBtn: {
     padding: Spacing.two,
+  },
+  privacyRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: Spacing.three,
+    paddingHorizontal: Spacing.three,
+    borderRadius: Spacing.two,
+    borderWidth: 1,
+  },
+  privacyRowLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.two,
   },
 });

@@ -1,37 +1,40 @@
 {
   "expo": {
     "name": "DevVault",
-    "slug": "snippet-vault",
+    "slug": "dev-vault",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "devvault",
     "userInterfaceStyle": "automatic",
-    "ios": {
-      "icon": "./assets/expo.icon"
-    },
+    
     "android": {
+      "package": "com.prashant2011.devvault",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#0B1220",
+        "foregroundImage": "./assets/images/icon.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/icon.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#0B1220",
+          "image": "./assets/images/splash-icon.png",
+          "resizeMode": "contain",
           "android": {
             "image": "./assets/images/splash-icon.png",
-            "imageWidth": 76
+            "resizeMode": "contain"
+          },
+          "ios": {
+            "image": "./assets/images/splash-icon.png",
+            "resizeMode": "contain"
           }
         }
       ],
@@ -39,7 +42,8 @@
       "expo-sqlite",
       "expo-secure-store",
       "expo-sharing",
-      "expo-asset"
+      "expo-asset",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
@@ -48,9 +52,15 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "5b70de45-7d95-4c3b-a7a7-a0052af2fa78"
+        "projectId": "4074060c-aca0-4fd8-a205-daac41c531f0"
       }
     },
-    "owner": "prashant2011"
+    "owner": "prashant2011",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4074060c-aca0-4fd8-a205-daac41c531f0"
+    }
   }
 }

@@ -75,7 +75,7 @@ export async function deleteFile(id: number): Promise<void> {
       try {
         const f = new File(file.file_uri);
         if (f.exists) {
-          await f.deleteAsync();
+          f.delete();
         }
       } catch (fsErr) {
         console.warn(`Failed to delete physical file: ${file.file_uri}`, fsErr);

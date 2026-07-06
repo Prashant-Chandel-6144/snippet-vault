@@ -60,6 +60,12 @@ export default function TabsLayout() {
           tabBarLabel: "Settings",
         }}
       />
+      <Tabs.Screen
+        name="files"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

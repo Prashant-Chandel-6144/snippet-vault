@@ -18,6 +18,7 @@ function AppContent() {
       <View style={{ flex: 1, backgroundColor: theme.background }}>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="privacy" />
         </Stack>
       </View>
     </NavigationThemeProvider>
