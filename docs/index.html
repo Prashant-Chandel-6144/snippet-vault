@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — DevVault</title>
+  <meta name="description" content="Privacy Policy for DevVault — a privacy-first, offline-first developer code snippet manager. Learn how DevVault handles your data." />
+  <meta name="theme-color" content="#0B1220" />
+  <meta property="og:title" content="Privacy Policy — DevVault" />
+  <meta property="og:description" content="DevVault is built with an offline-first architecture. Your data stays on your device — always." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #060D18;
+      --bg-app: #0B1220;
+      --bg-card: #111B2E;
+      --bg-elevated: #172237;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-medium: rgba(255, 255, 255, 0.1);
+      --text-primary: #E8ECF2;
+      --text-secondary: #8A98AD;
+      --text-tertiary: #5A6A80;
+      --accent: #0274DF;
+      --accent-teal: #1ACEA0;
+      --accent-teal-wash: rgba(26, 206, 160, 0.08);
+      --accent-purple: #7F77DD;
+      --accent-orange: #EF9F27;
+      --accent-red: #D85A30;
+      --accent-green: #1D9E75;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.65;
+      font-size: 15px;
+      min-height: 100vh;
+    }
+
+    /* ── Animated Gradient Background ───────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(2, 116, 223, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(26, 206, 160, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(127, 119, 221, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: bgShift 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgShift {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+
+    /* ── Layout Container ───────────────────────────────── */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Navigation Bar ─────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 18, 32, 0.85);
+      backdrop-filter: blur(16px) saturate(1.6);
+      -webkit-backdrop-filter: blur(16px) saturate(1.6);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 -24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-teal));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .nav-name {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-teal);
+      background: var(--accent-teal-wash);
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Hero Section ───────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 72px 0 48px;
+    }
+
+    .hero-shield {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--accent-teal-wash);
+      border: 1px solid rgba(26, 206, 160, 0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero-shield svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--accent-teal);
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── Info Chips Row ──────────────────────────────────── */
+    .chip-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .chip {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      text-align: center;
+      transition: border-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .chip:hover {
+      border-color: var(--border-medium);
+      transform: translateY(-2px);
+    }
+
+    .chip-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-tertiary);
+      margin-bottom: 6px;
+    }
+
+    .chip-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* ── Section Cards ──────────────────────────────────── */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      border-color: var(--border-medium);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .icon-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-badge.teal     { background: rgba(26, 206, 160, 0.1); }
+    .icon-badge.teal svg { fill: var(--accent-teal); }
+    .icon-badge.blue     { background: rgba(2, 116, 223, 0.1); }
+    .icon-badge.blue svg { fill: var(--accent); }
+    .icon-badge.purple     { background: rgba(127, 119, 221, 0.1); }
+    .icon-badge.purple svg { fill: var(--accent-purple); }
+    .icon-badge.green     { background: rgba(29, 158, 117, 0.1); }
+    .icon-badge.green svg { fill: var(--accent-green); }
+    .icon-badge.red     { background: rgba(216, 90, 48, 0.1); }
+    .icon-badge.red svg { fill: var(--accent-red); }
+    .icon-badge.orange     { background: rgba(239, 159, 39, 0.1); }
+    .icon-badge.orange svg { fill: var(--accent-orange); }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+
+    .section-body p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .subsection-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+
+    /* ── Bullet Points ──────────────────────────────────── */
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+
+    .bullet-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.65;
+      padding: 6px 0;
+    }
+
+    .bullet-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-teal);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ── Storage Table ──────────────────────────────────── */
+    .storage-table {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-top: 16px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .storage-table .table-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+    }
+
+    .storage-table .table-header {
+      background: var(--bg-elevated);
+    }
+
+    .storage-table .table-row:not(.table-header):nth-child(even) {
+      background: rgba(23, 34, 55, 0.4);
+    }
+
+    .table-cell-tech {
+      width: 140px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      flex-shrink: 0;
+    }
+
+    .table-header .table-cell-tech,
+    .table-header .table-cell-purpose {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-tertiary);
+    }
+
+    .table-cell-purpose {
+      flex: 1;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── Warning Box ────────────────────────────────────── */
+    .warning-box {
+      display: flex;
+      gap: 10px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(239, 159, 39, 0.2);
+      background: rgba(239, 159, 39, 0.04);
+      margin-top: 18px;
+      align-items: flex-start;
+    }
+
+    .warning-box svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--accent-orange);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .warning-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0 !important;
+    }
+
+    /* ── Permission Cards ───────────────────────────────── */
+    .perm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .perm-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      background: var(--bg-elevated);
+      transition: border-color 0.2s ease;
+    }
+
+    .perm-card:hover {
+      border-color: var(--border-medium);
+    }
+
+    .perm-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bg-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .perm-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--text-secondary);
+    }
+
+    .perm-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .perm-reason {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    /* ── Contact Box ────────────────────────────────────── */
+    .contact-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-row svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--accent-teal);
+      flex-shrink: 0;
+    }
+
+    .contact-row span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .contact-row a {
+      color: var(--accent-teal);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+
+    .contact-row a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      padding: 48px 0 40px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 16px;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--text-tertiary);
+    }
+
+    .footer p {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .footer .copyright {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    /* ── Back to Top Button ─────────────────────────────── */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 16px rgba(2, 116, 223, 0.3);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    .back-to-top:hover {
+      background: #0363BE;
+    }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .page-wrapper {
+        padding: 0 16px;
+      }
+
+      .nav {
+        padding: 14px 16px;
+        margin: 0 -16px;
+      }
+
+      .hero {
+        padding: 56px 0 36px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .chip-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .section-card {
+        padding: 20px;
+      }
+
+      .perm-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .table-cell-tech {
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="page-wrapper">
+    <nav class="nav">
+      <a href="#" class="nav-brand">
+        <div class="nav-logo">D</div>
+        <span class="nav-name">DevVault</span>
+      </a>
+      <span class="nav-badge">Privacy Policy</span>
+    </nav>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-shield">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm-38.4 312.8L114.8 258l29.7-29.7 73.1 72.8 149.9-149.9 29.7 29.7-179.6 179.9z"/></svg>
+      </div>
+      <h1>Your Privacy Matters</h1>
+      <p>DevVault is built with an offline-first architecture. Your data stays on your device — always.</p>
+    </section>
+
+    <!-- Info Chips -->
+    <div class="chip-row">
+      <div class="chip">
+        <div class="chip-label">Effective Date</div>
+        <div class="chip-value">July 6, 2025</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Architecture</div>
+        <div class="chip-value">Offline-First</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Version</div>
+        <div class="chip-value">1.0.0</div>
+      </div>
+    </div>
+
+    <!-- Section 1: Overview -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge blue">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 56C145.7 56 56 145.7 56 256s89.7 200 200 200 200-89.7 200-200S366.3 56 256 56zm-8 120c0-8.8 7.2-16 16-16s16 7.2 16 16v16c0 8.8-7.2 16-16 16s-16-7.2-16-16v-16zm24 192h-32v-128h32v128z"/></svg>
+        </div>
+        <h2 class="section-title">Overview</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          DevVault ("the App") is a developer-focused mobile application that allows you to save,
+          organize, manage, and understand code snippets directly on your device. This Privacy Policy
+          explains what data the App handles, how it is stored, and your rights regarding that data.
+        </p>
+        <p>
+          By using DevVault, you agree to the practices described in this policy. If you do not agree,
+          please discontinue use of the App.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: Data We Collect -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge teal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.52 0 40.03l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 276.3c16.55-7.51 16.55-32.53 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.52 0 40.03l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0l232.94-105.59c16.56-7.51 16.56-32.53.01-40.03z"/></svg>
+        </div>
+        <h2 class="section-title">Data We Collect</h2>
+      </div>
+      <div class="section-body">
+        <h3 class="subsection-title">Snippet Data</h3>
+        <p>
+          All code snippets you create — including titles, code content, programming language,
+          tags, and favorite status — are stored exclusively in a local SQLite database on your device.
+        </p>
+
+        <h3 class="subsection-title">Application Preferences</h3>
+        <p>
+          Theme preferences (light, dark, or system) and application settings such as onboarding state
+          are stored locally using AsyncStorage. These preferences never leave your device.
+        </p>
+
+        <h3 class="subsection-title">API Keys</h3>
+        <p>
+          If you choose to use AI-powered features, your OpenAI API key is stored securely on your
+          device using Expo SecureStore, which leverages the platform's native keychain
+          (iOS Keychain / Android Keystore). The App never transmits your API key to any
+          server other than the AI provider (OpenAI) when you explicitly request an AI explanation.
+        </p>
+
+        <h3 class="subsection-title">Files &amp; Attachments</h3>
+        <p>
+          Screenshots, code files, templates, and other resources attached to snippets are
+          stored locally on your device's filesystem using Expo FileSystem. Files are organized into
+          dedicated directories (screenshots, code files, templates) and remain entirely on-device.
+          They are not uploaded to any cloud service.
+        </p>
+
+        <h3 class="subsection-title">AI Explanations</h3>
+        <p>
+          When you generate an AI-powered code explanation, the resulting response is cached locally
+          in your SQLite database so you can access it offline without re-requesting it.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: How Data Is Stored -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge blue">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M480 288H32c-17.7 0-32 14.3-32 32v128c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32V320c0-17.7-14.3-32-32-32zm-16 136c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-160H32c-17.7 0-32-14.3-32-32V104c0-17.7 14.3-32 32-32h448c17.7 0 32 14.3 32 32v128c0 17.7-14.3 32-32 32zm-16-104c-13.3 0-24 10.7-24 24s10.7 24 24 24 24-10.7 24-24-10.7-24-24-24z"/></svg>
+        </div>
+        <h2 class="section-title">How Data Is Stored</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          DevVault uses the following storage technologies, each for a specific purpose:
+        </p>
+
+        <div class="storage-table">
+          <div class="table-row table-header">
+            <span class="table-cell-tech">Technology</span>
+            <span class="table-cell-purpose">Purpose</span>
+          </div>
+          <div class="table-row">
+            <span class="table-cell-tech">SQLite</span>
+            <span class="table-cell-purpose">Snippet database, tags, programming languages, file metadata, AI explanations</span>
+          </div>
+          <div class="table-row">
+            <span class="table-cell-tech">AsyncStorage</span>
+            <span class="table-cell-purpose">Theme &amp; app preferences, onboarding state</span>
+          </div>
+          <div class="table-row">
+            <span class="table-cell-tech">SecureStore</span>
+            <span class="table-cell-purpose">API keys &amp; sensitive credentials (encrypted via native keychain)</span>
+          </div>
+          <div class="table-row">
+            <span class="table-cell-tech">Expo FileSystem</span>
+            <span class="table-cell-purpose">Attached screenshots, code files, downloaded templates, exported snippets</span>
+          </div>
+        </div>
+
+        <p style="margin-top: 18px;">
+          All storage is local to your device. No data is synced to external servers or
+          cloud storage as part of the App's core functionality.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: AI Code Explanation -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge purple">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L256 439.6l99.3 52.8c23.2 12.3 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L314 150.2 248.7 17.8c-11.7-23.6-45.6-23.6-57.4 0z"/></svg>
+        </div>
+        <h2 class="section-title">AI Code Explanation</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          DevVault offers an optional AI-powered feature that generates code explanations,
+          summaries, and improvement suggestions for your snippets using OpenAI's GPT-4o model.
+        </p>
+
+        <h3 class="subsection-title">How It Works</h3>
+        <ul class="bullet-list">
+          <li>
+            When you request an AI explanation, the selected snippet's code content and programming
+            language are sent to the OpenAI API using the API key you have provided.
+          </li>
+          <li>
+            The request is made directly from your device to OpenAI — no intermediary
+            servers are involved. DevVault does not operate any backend servers.
+          </li>
+          <li>
+            AI-generated responses are cached locally in your SQLite database for offline access,
+            so the same snippet does not need to be re-analyzed.
+          </li>
+          <li>
+            We do not store, log, or have access to any data sent to or received from OpenAI.
+          </li>
+        </ul>
+
+        <div class="warning-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 376c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm38.2-168.8l-12 152c-.3 4.2-3.8 7.5-8 7.5h-36.4c-4.2 0-7.7-3.3-8-7.5l-12-152c-.3-4.4 3.2-8.2 7.7-8.2h61c4.5 0 8 3.8 7.7 8.2z"/></svg>
+          <p>
+            Please review <a href="https://openai.com/privacy/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-orange);">OpenAI's privacy policy</a>
+            to understand how they handle data sent via API requests. DevVault has no control over third-party data processing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Export & Sharing -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge teal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"/></svg>
+        </div>
+        <h2 class="section-title">Export &amp; Sharing</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          DevVault allows you to export and share your snippets through the following mechanisms:
+        </p>
+        <ul class="bullet-list">
+          <li>Export snippets as <code>.txt</code>, <code>.js</code>, or <code>.json</code> files saved locally on your device.</li>
+          <li>Share snippets with other applications using your device's native share sheet (via Expo Sharing).</li>
+          <li>Exported files are saved to your device's local storage and are not uploaded automatically.</li>
+        </ul>
+        <p style="margin-top: 14px;">
+          When you use the share functionality, the destination app's privacy policy governs
+          how the shared data is handled. DevVault does not track or log sharing activity.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: Data We Do NOT Collect -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge green">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M637.9 241.7L512 135V96c0-35.3-28.7-64-64-64H192c-35.3 0-64 28.7-64 64v39L2.1 241.7C.7 243.3 0 245.1 0 247v16c0 4.4 3.6 8 8 8h48v208c0 17.7 14.3 32 32 32h464c17.7 0 32-14.3 32-32V271h48c4.4 0 8-3.6 8-8v-16c0-1.9-.7-3.7-2.1-5.3zM320 416c-35.3 0-64-28.7-64-64s28.7-64 64-64 64 28.7 64 64-28.7 64-64 64z"/></svg>
+        </div>
+        <h2 class="section-title">Data We Do NOT Collect</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          DevVault is designed with privacy at its core. We do not:
+        </p>
+        <ul class="bullet-list">
+          <li>Collect personal information (name, email, phone number)</li>
+          <li>Track your location or device identifiers</li>
+          <li>Use analytics, telemetry, or crash-reporting SDKs</li>
+          <li>Display advertisements or use ad-tracking</li>
+          <li>Require user accounts or authentication</li>
+          <li>Sync, upload, or back up your data to any server</li>
+          <li>Share any data with third parties (except as described in the AI section above)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 7: Device Permissions -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge blue">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M423.5 0C339.5.3 272 69.5 272 153.5V224H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48h-48v-70.5c0-49.9 40.1-91.1 90-91.5 49.9-.3 90 40.2 90 90V224c0 17.7 14.3 32 32 32s32-14.3 32-32v-78.2C576 65.1 508.7-.3 423.5 0z"/></svg>
+        </div>
+        <h2 class="section-title">Device Permissions</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          DevVault may request the following device permissions:
+        </p>
+
+        <div class="perm-grid">
+          <div class="perm-card">
+            <div class="perm-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM256 400c79.5 0 144-64.5 144-144S335.5 112 256 112 112 176.5 112 256s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"/></svg>
+            </div>
+            <div>
+              <div class="perm-name">Camera</div>
+              <div class="perm-reason">Capture screenshots for snippet attachments</div>
+            </div>
+          </div>
+
+          <div class="perm-card">
+            <div class="perm-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M480 416v16c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h16v208c0 44.1 35.9 80 80 80h336zm96-80V80c0-26.5-21.5-48-48-48H144c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h384c26.5 0 48-21.5 48-48zM256 128c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm-96 208c0-33.3 35.8-64 96-64 60.2 0 96 30.7 96 64H160z"/></svg>
+            </div>
+            <div>
+              <div class="perm-name">Photo Library</div>
+              <div class="perm-reason">Select images to attach to snippets</div>
+            </div>
+          </div>
+
+          <div class="perm-card">
+            <div class="perm-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1V136H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 97.9c4.5 4.5 7 10.6 7 17z"/></svg>
+            </div>
+            <div>
+              <div class="perm-name">File Access</div>
+              <div class="perm-reason">Import, export, and manage local files</div>
+            </div>
+          </div>
+
+          <div class="perm-card">
+            <div class="perm-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 464c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208zm0-304c-44.2 0-80 35.8-80 80h40c0-22.1 17.9-40 40-40s40 17.9 40 40c0 17.5-11.6 28.4-27.2 39.9-17.4 12.8-36.8 29.5-36.8 63.1v8h40v-8c0-16.5 11.6-27.4 27.2-38.9C317.4 292.3 336 275.6 336 240c0-44.2-35.8-80-80-80z"/></svg>
+            </div>
+            <div>
+              <div class="perm-name">Biometric Auth</div>
+              <div class="perm-reason">Protect access to sensitive stored credentials</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top: 18px;">
+          All permissions are optional and requested only when you initiate the relevant action.
+          Denying a permission will not affect other App functionality.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 8: Data Retention & Deletion -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge red">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 80h-82.4l-34-56.7A48 48 0 0 0 274.4 0H173.6a48 48 0 0 0-41.2 23.3L98.4 80H16A16 16 0 0 0 0 96v16a16 16 0 0 0 16 16h16l21.2 339C55.5 491 76.3 512 100.4 512h247.2c24.2 0 44.9-21 47.2-44.9L416 128h16a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16zm-248-36a8 8 0 0 1 6.9-4h66.2a8 8 0 0 1 6.9 4L280 80H168z"/></svg>
+        </div>
+        <h2 class="section-title">Data Retention &amp; Deletion</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          Since all data is stored locally on your device, you have full control over its lifecycle:
+        </p>
+        <ul class="bullet-list">
+          <li>Delete individual snippets, files, tags, or AI explanations at any time through the App's interface.</li>
+          <li>Use the "Reset Local Database" option in Settings to erase all snippet data, tags, languages, file records, and AI explanations at once.</li>
+          <li>Uninstalling the App will remove all locally stored data permanently.</li>
+          <li>Stored API keys can be cleared from Settings or will be removed automatically on uninstall.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 9: Children's Privacy -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge teal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-163.7-18.6C141.5 263.1 125.6 256 108 256H44c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"/></svg>
+        </div>
+        <h2 class="section-title">Children's Privacy</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          DevVault is a general-purpose developer tool and is not directed at children
+          under 13. We do not knowingly collect any personal information from children. Since
+          the App does not collect personal data from any user, no special provisions for
+          children's data apply.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 10: Changes to This Policy -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge blue">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1V136H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 97.9c4.5 4.5 7 10.6 7 17z"/></svg>
+        </div>
+        <h2 class="section-title">Changes to This Policy</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          We may update this Privacy Policy from time to time to reflect changes in the App's
+          functionality or for legal compliance. Any updates will be published within the App
+          and on this page with a revised effective date. Continued use of the App after changes
+          constitutes acceptance of the updated policy.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 11: Contact Us -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="icon-badge teal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm0 48v40.8c-22.4 18.3-58.2 46.7-134.6 106.5-16.8 13.2-50.2 45.1-73.4 44.7-23.2.4-56.6-31.5-73.4-44.7C106.2 199.5 70.4 171.1 48 152.8V112h416zM48 400V214.4c22.9 18.3 55.7 44.2 100.7 79.1 22.4 17.5 62.1 56.2 107.3 55.5 44.9.8 84.5-37.7 107.3-55.5 45-34.8 77.8-60.7 100.7-79.1V400H48z"/></svg>
+        </div>
+        <h2 class="section-title">Contact Us</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          If you have questions, concerns, or feedback regarding this Privacy Policy or the
+          App's data practices, please reach out:
+        </p>
+
+        <div class="contact-box">
+          <div class="contact-row">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm0 48v40.8c-22.4 18.3-58.2 46.7-134.6 106.5-16.8 13.2-50.2 45.1-73.4 44.7-23.2.4-56.6-31.5-73.4-44.7C106.2 199.5 70.4 171.1 48 152.8V112h416z"/></svg>
+            <a href="mailto:prashantchandel6144@gmail.com">prashantchandel6144@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M481.3 30.7C449.8-.7 399-3 364 28.4L256 128 148 28.4c-35-31.4-85.8-29.1-117.3 2.4C-.7 62.2-3 113 28.4 148L128 256 28.4 364c-31.4 35-29.1 85.8 2.4 117.3 31.4 31.4 82.2 33.7 117.3 2.4L256 384l108 99.6c35 31.4 85.8 29.1 117.3-2.4 31.4-31.4 33.7-82.2 2.4-117.3L384 256l99.7-108c31.3-35.1 29-85.9-2.4-117.3z"/></svg>
+            <span>DevVault v1.0.0</span>
+          </div>
+          <div class="contact-row">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.8-14.3-112.8-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z"/></svg>
+            <a href="https://github.com/Prashant-Chandel-6144/snippet-vault" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm-38.4 312.8L114.8 258l29.7-29.7 73.1 72.8 149.9-149.9 29.7 29.7-179.6 179.9z"/></svg>
+        <span style="font-weight: 600; color: var(--text-tertiary);">DevVault</span>
+      </div>
+      <p>Privacy-first, offline-first.</p>
+      <p class="copyright">&copy; 2025 DevVault. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M240.9 28.7c-3.1-3.1-8.2-3.1-11.3 0L3.5 254.7c-4.7 4.7-1.4 12.8 5.3 12.8H160v200c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-200h151.2c6.7 0 10-8.1 5.3-12.8L240.9 28.7z"/></svg>
+  </button>
+
+  <script>
+    // Back to Top button visibility
+    const backToTopBtn = document.getElementById('backToTop');
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 400) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Subtle entrance animations using IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.section-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
